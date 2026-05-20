@@ -1,0 +1,11 @@
+# Audit reports (generated at runtime)
+audit-report.md
+audit-report.html
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
