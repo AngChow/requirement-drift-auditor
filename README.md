@@ -1,6 +1,5 @@
 # Requirement Drift Auditor (需求偏离审计)
 
-[![Claude Code Skill](https://img.shields.io/badge/Claude_Code-Skill-blue.svg)](https://claude.ai/code)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 一个 Claude Code Skill，用于在需求开发完成后、提测前，以原始需求为基准线审计代码变更，排查偏离需求的"存疑发散"修改，生成本地 Markdown 和 HTML 审计报告供人工审核。
