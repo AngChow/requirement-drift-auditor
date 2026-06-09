@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-一个 Claude Code Skill，用于在需求开发完成后、提测前，以原始需求为基准线审计代码变更，排查偏离需求的"存疑发散"修改，生成本地 Markdown 和 HTML 审计报告供人工审核。
+一个 Claude Code / CodeX Skill，用于在需求开发完成后、提测前，以原始需求为基准线审计代码变更，排查偏离需求的"存疑发散"修改，生成本地 Markdown 和 HTML 审计报告供人工审核。
 
 ## 背景与动机
 
@@ -18,26 +18,31 @@
 
 ## 安装
 
-### 方式一：在 Claude Code 中直接安装（推荐）
+### 方式一：在 Claude Code / CodeX 中直接安装（推荐）
 
-打开 Claude Code，直接说：
+打开 Claude Code 或 CodeX，直接说：
 
 ```
 帮我安装这个 skill https://github.com/AngChow/requirement-drift-auditor.git
 ```
 
-Claude 会自动完成克隆和注册。
+Claude Code / CodeX 会自动完成克隆和注册。
 
 ### 方式二：手动安装
 
 ```bash
+# Claude Code
 git clone https://github.com/AngChow/requirement-drift-auditor.git \
   ~/.claude/skills/requirement-drift-auditor
+
+# CodeX
+git clone https://github.com/AngChow/requirement-drift-auditor.git \
+  ~/.codex/skills/requirement-drift-auditor
 ```
 
 ## 使用方法
 
-在 Claude Code 中，当开发完成准备提测时，使用以下任一方式触发：
+在 Claude Code / CodeX 中，当开发完成准备提测时，使用以下任一方式触发：
 
 ```
 /requirement-drift-auditor 本次需求：新增用户导出功能
@@ -97,7 +102,7 @@ Skill 对每处逻辑变更进行三级分类：
 
 ```
 requirement-drift-auditor/
-├── SKILL.md          # Skill 定义文件（Claude Skill 格式，含触发条件和工作流）
+├── SKILL.md          # Skill 定义文件（Claude Code / CodeX Skill 格式，含触发条件和工作流）
 ├── README.md         # 本文件
 ├── LICENSE           # MIT 许可证
 └── .gitignore
