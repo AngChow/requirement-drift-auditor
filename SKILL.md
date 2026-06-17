@@ -1,6 +1,6 @@
 ---
 name: "requirement-drift-auditor"
-description: "Audits git diff against master branch to detect code changes that drift from the original requirement. Invoke before testing to generate a local audit-report.md and audit-report.html."
+description: 'Generate a requirement-drift audit report comparing git diff against master/main to find changes that diverge from the stated requirement. Use only when the user explicitly asks for a requirement-drift audit, code drift audit, pre-release/pre-test audit report, checks for 夹带私货/off-scope changes, or asks to generate audit-report.md/audit-report.html; do not trigger merely because code was changed, tested, built, or is ready to test.'
 allowed-tools: Bash(git:*) Bash(git分支:*) Bash(mkdir:*)
 ---
 
@@ -9,7 +9,21 @@ allowed-tools: Bash(git:*) Bash(git分支:*) Bash(mkdir:*)
 本 Skill 用于在需求开发完成、提测前，以原始需求为基准线，通过分析当前分支与 `master` 分支的 Git Diff，排查并揪出偏离需求的”存疑发散”修改（如隐式重构、未要求的逻辑变更），最终生成本地的 Markdown 和 HTML 审计报告。
 
 ## 触发时机
-当用户表示“开发完成，准备提测”、“检查一下代码有没有夹带私货”、“执行审计”、“生成代码审查报告”时，你必须立即触发本技能。
+仅当用户**明确要求**执行需求偏离/需求漂移审计时触发，例如：
+
+- “执行需求偏离审计”
+- “检查一下有没有夹带私货”
+- “生成审计报告 / audit-report.md / audit-report.html”
+- “提测前帮我做一次需求漂移检查”
+- “对照原始需求审一下这次 diff 有没有超范围修改”
+
+不要因为以下情况自动触发：
+
+- 用户只是要求实现、修改、修 bug、跑测试或构建；
+- 用户说“准备提测”但没有要求审计/检查偏离；
+- 你自己准备在测试前做验证。
+
+如果用户只要求“测试/构建/验证”，直接测试或构建，不生成审计报告。
 
 ## 执行工作流 (严格按顺序执行)
 
